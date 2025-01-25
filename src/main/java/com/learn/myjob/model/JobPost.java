@@ -1,7 +1,10 @@
 package com.learn.myjob.model;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,6 +16,7 @@ import lombok.NoArgsConstructor;
 //@Data
 //@AllArgsConstructor
 //@NoArgsConstructor
+
 @Entity
 public class JobPost {
 	
@@ -22,7 +26,7 @@ public class JobPost {
 	private String postDesc;
 	private Integer reqExperience;
 	private List<String> postTechStack;
-	private List<String> candidates;
+	private Set<String> candidates =  new HashSet<>();
 	
 	
 	
@@ -67,11 +71,13 @@ public class JobPost {
 		this.postTechStack = postTechStack;
 	}
 
-	public List<String> getCandidates() {
+	public Set<String> getCandidates() {
 		return candidates;
 	}
-	public void setCandidates(List<String> candidates) {
-		this.candidates = candidates;
+	public void addCandidate(String candidate) {
+		if(candidates==null)
+		candidates = new HashSet<>();
+		candidates.add(candidate);
 	}
 	public JobPost() {
 		super();

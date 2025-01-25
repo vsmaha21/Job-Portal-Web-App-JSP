@@ -151,12 +151,30 @@ public class JobController {
         // Add jobPost to model to pass to JSP
         model.addAttribute("jobPost", jobPost);
         
-        model.addAttribute("candidates", "Candidates:");
+        model.addAttribute("candidates", "Candidates Applied:");
 
         // Return the JSP page for job details
         return "success.jsp";  // This should correspond to jobDetails.jsp
     }
 	
+	
+	@GetMapping("/applyjob")
+    public String applyjob(@RequestParam("postId") Integer postId, Model model) {
+        // Retrieve the job post by ID
+		
+		System.out.println("Applying for Job");
+        JobPost jobPost = jobService.getJob(postId);
+
+        model.addAttribute("jobPostMessage", "Job Details ");
+
+        // Add jobPost to model to pass to JSP
+        model.addAttribute("jobPost", jobPost);
+        
+        model.addAttribute("candidates", "Candidates:");
+
+        // Return the JSP page for job details
+        return "applyjob.jsp";  // This should correspond to jobDetails.jsp
+    }
 	
 	
 	//view job by ID
@@ -165,6 +183,36 @@ public class JobController {
 		log.info("Fetching a job with postId " +postId );
 		return jobService.getJob(postId);
 	 	
-	}	
+	}
+	
+	@PostMapping("/applyForm")
+	public String applyJobForm(Integer postId, String candidate, Model model) {
+		
+		System.out.println(postId);
+		
+		System.out.println(candidate);
+		
+		JobPost job = jobService.getJob(postId);
+		job.addCandidate(candidate);
+		
+		jobService.update(postId, job);
+		
+		System.out.println(job.getCandidates());
+		
+		System.out.println(job.getPostTechStack());
+		
+//		boolean flag =jobService.addNewJob(jobPost);
+//		if(flag) model.addAttribute("jobPostMessage", "Added new Job Successfully");
+//		else model.addAttribute("jobPostMessage", "Post ID was already present, updated existing job");
+			
+			model.addAttribute("jobPost", job);
+		
+		 
+//		System.out.println(flag);
+		
+		
+		return "success.jsp";
+		
+	}
 
 }

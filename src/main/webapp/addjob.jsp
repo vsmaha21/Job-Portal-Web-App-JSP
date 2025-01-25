@@ -12,8 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
     <style>
         body {
-            background-color: #f4f6f9; /* Softer off-white background */
-            color: #4a4a4a; /* Softer text color */
+            background-color: #f4f6f9; 
+            color: #4a4a4a;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -61,7 +61,7 @@
 
         .card-body {
             padding: 30px;
-            text-align: left; /* Align text to the left */
+            text-align: left;
         }
 
         .btn-primary {

@@ -118,8 +118,8 @@
                     <div class="card-footer">
                         <a href="addjob" class="btn btn-warning btn-sm">Edit</a>
                         <a href="javascript:void(0);" onclick="clickconform(${jobPost.postId});" class="btn btn-danger btn-sm">Delete</a>
-                        <a href="applyjob?postId=${jobPost.postId}" class="btn btn-success btn-sm">Apply</a> <!-- Apply button added -->
-                        <a href="jobDetails?postId=${jobPost.postId}" class="btn btn-primary btn-sm">View</a> <!-- View button added -->
+                        <a href="applyjob?postId=${jobPost.postId}" class="btn btn-success btn-sm">Apply</a> 
+                        <a href="jobDetails?postId=${jobPost.postId}" class="btn btn-primary btn-sm">View</a> 
                         
                     </div>
                 </div>
@@ -141,9 +141,9 @@
     function clickconform(postId) {
         // Display confirmation dialog
         if (confirm('Are you sure you want to delete this job post?')) {
-            // Make AJAX request to delete the job post
+  
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/myjob/rest/delete/" + postId, true); // Ensure this URL matches your backend delete endpoint
+            xhr.open("POST", "/myjob/rest/delete/" + postId, true); 
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
@@ -156,7 +156,7 @@
                     }
                 }
             };
-            xhr.send();  // Send the request
+            xhr.send();  
         }
     }
 </script>

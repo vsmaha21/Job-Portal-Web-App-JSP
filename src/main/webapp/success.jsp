@@ -10,12 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f4f6f9; /* Softer off-white background */
-            color: #4a4a4a; /* Softer text color */
+            background-color: #f4f6f9; 
+            color: #4a4a4a; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Custom Navbar Styling */
+        
         .navbar-custom {
             background-color: #343a40; /* Dark gray navbar */
         }
@@ -28,7 +28,7 @@
              color: #ffc107 !important; /* Gold color on hover */
         }
 
-        /* Footer Styling */
+    
         .footer-custom {
             background-color: #343a40; /* Dark gray footer */
             color: white;
@@ -55,11 +55,11 @@
 
         .card-body {
             padding: 30px;
-            text-align: left; /* Align text to the left */
+            text-align: left;
         }
 
         .card-footer {
-            background-color: #343a40; /* Match footer background color */
+            background-color: #343a40;
             color: white;
             text-align: center;
         }
@@ -94,7 +94,7 @@
 </head>
 <body>
 
-    <!-- Navbar -->
+ 
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <div class="container">
             <a class="navbar-brand fs-1 fw-medium" href="#">My Job Portal Web App</a>
@@ -137,20 +137,20 @@
                                     <li>${tech}</li>
                                 </c:forEach>
                             </ul>
-                        </p>
-                        <p class="card-text">
+                        </p>	    
+					    
+					    <p class="card-text">
+					    	<c:if test="${not empty candidates}">
                             <strong>${candidates}</strong>
                             <ul>
                                 <c:forEach var="tech" items="${jobPost.candidates}">
                                     <li>${tech}</li>
                                 </c:forEach>
                             </ul>
+                            </c:if>
                         </p>
                         
                         
-                    </div>
-                    <div class="card-footer">
-                        <!-- Optional footer content -->
                     </div>
                 </div>
             </div>
@@ -163,7 +163,6 @@
         <p style="font-size: 12px; margin: 0;">&copy; 2025 My Job Portal</p>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
